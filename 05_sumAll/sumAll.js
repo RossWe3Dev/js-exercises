@@ -1,7 +1,15 @@
-const sumAll = function (a, b) {
+const sumAll = function (lower, higher) {
     let sum = 0;
-    for (i = +a; i <= +b; i++) {
-        sum = sum + i;
+    if (!Number.isInteger(lower) || !Number.isInteger(higher)) return 'ERROR';
+    if (lower < 0 || higher < 0) return 'ERROR';
+    if (lower < higher) {
+        for (i = lower; i <= higher; i++) {
+            sum = sum + i;
+        }
+    } else {
+        for (i = higher; i <= lower; i++) {
+            sum = sum + i;
+        }
     }
     return sum;
 };
